@@ -12,3 +12,8 @@
 */
 
 Route::get('/', 'HomeController@index');
+
+//product routes
+Route::get('/prodotti', 'ProductController@index')->name('products.index');
+Route::get('/prodotti/nuovo', 'ProductController@create')->name('products.create');
+Route::post('/prodotti/nuovo', 'ProductController@save')->name('products.save');
