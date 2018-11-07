@@ -39,8 +39,14 @@
                                 </td>
                                 <td>{{ $product->price }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary">
+                                    {{-- <a href="#" class="btn btn-primary">
                                         Edit
+                                    </a> --}}
+                                    <a href="{{route('products.edit', ['id' => $product->id])}}" class="btn btn-primary">
+                                      EDIT
+                                    </a>
+                                    <a href="{{route('products.delete', ['id' => $product->id])}}" class="btn btn-danger">
+                                        DELETE
                                     </a>
                                 </td>
                             </tr>

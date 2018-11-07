@@ -30,6 +30,52 @@ class ProductController extends Controller
         return view('products.create', $data);
     }
 
+    public function delete(Product $product){
+
+      // $pd = Product::find($product);
+
+      $product->delete();
+
+      return redirect()->route('products.index');
+
+    }
+
+    public function edit($product){
+
+      $pd = Product::find($product);
+
+      return view('products.edit', ['pd' => $pd]);
+
+    }
+
+    public function change(Product $product, Request $request){
+
+      $data = $request->all();
+
+      // $pd = Product::find($product);
+      //prendi l'oggetto dal database da cambiare, con id
+      $product->fill($data);
+
+      if ($request->input('is_active') == null){
+        $product->is_active = false;
+      }
+      else{
+        $product->is_active = true;
+      }
+
+      if ($request->input('is_special') == null){
+        $product->is_special = false;
+      }
+      else{
+        $product->is_special = true;
+      }
+
+      $product->save();
+
+      return redirect()->route('products.index');
+
+    }
+
     public function save(Request $request)
     {
         $data = $request->all();
