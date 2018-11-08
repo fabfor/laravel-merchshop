@@ -22,6 +22,7 @@
                         <tr>
                             <th>Id</th>
                             <th>Titolo</th>
+                            <th>Titolo Categoria</th>
                             <th>Slug</th>
                             <th>Descrizione</th>
                             <th>Prezzo</th>
@@ -33,6 +34,7 @@
                             <tr>
                                 <td>{{ $product->id }}</td>
                                 <td>{{ $product->title }}</td>
+                                <td>{{ $product->category->title }}</td>
                                 <td>{{ $product->slug }}</td>
                                 <td>
                                     {{ str_limit($product->description, 10, '[...]') }}

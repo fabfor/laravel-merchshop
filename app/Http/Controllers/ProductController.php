@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Category;
 
 class ProductController extends Controller
 {
@@ -24,10 +25,19 @@ class ProductController extends Controller
     public function create()
     {
         $data = [
-            'title' => 'Crea nuovo prodotto'
+            'title' => 'Crea nuovo prodotto',
+            'categories' => Category::all()
         ];
 
         return view('products.create', $data);
+    }
+
+    public function edit($product){
+
+      $pd = Product::find($product);
+
+      return view('products.edit', ['pd' => $pd]);
+
     }
 
     public function delete(Product $product){
@@ -37,14 +47,6 @@ class ProductController extends Controller
       $product->delete();
 
       return redirect()->route('products.index');
-
-    }
-
-    public function edit($product){
-
-      $pd = Product::find($product);
-
-      return view('products.edit', ['pd' => $pd]);
 
     }
 

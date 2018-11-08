@@ -29,6 +29,15 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="category_id">Categoria</label>
+                        <select class="form-control" name="category_id">
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->title }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <input type="submit" value="Salva" class="form-control">
                     </div>
                 </form>

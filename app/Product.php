@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = ['title', 'slug', 'price', 'description'];
+    protected $fillable = ['title', 'category_id', 'slug', 'price', 'description'];
+
+    //Un prodotto avrà una sola categoria
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
+    }
 
 }

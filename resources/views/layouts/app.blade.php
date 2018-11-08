@@ -16,6 +16,7 @@
             <h5 class="my-0 mr-md-auto font-weight-normal">Boolean</h5>
             <nav class="my-2 my-md-0 mr-md-3">
                 <a class="p-2 text-dark" href="{{ route('products.index') }}">Prodotti</a>
+                <a class="p-2 text-dark" href="{{ route('categories.index') }}">Categorie</a>
             </nav>
         </div>
 
