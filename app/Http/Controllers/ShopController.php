@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Product;
+use App\Category;
 
 class ShopController extends Controller
 {
     public function index(){
-      $products = Product::where('is_active',true)->get();
+      $categorie = Category::all();
 
-      return view('shop.index',['pds'=>$products]);
+
+      return view('shop.index',['cat'=>$categorie]);
     }
 }

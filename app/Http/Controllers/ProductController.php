@@ -12,6 +12,7 @@ class ProductController extends Controller
     //ritornerà una view con l'indice dei prodotti
     public function index()
     {
+
         $products = Product::all();
 
         $data = [

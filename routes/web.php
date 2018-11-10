@@ -35,6 +35,13 @@ Route::prefix('admin')->group(function () {
     Route::post('/categorie/modifica/{category}', 'CategoryController@change')->name('categories.change');
 
     Route::get('/categorie/cancella/{category}', 'CategoryController@delete')->name('categories.delete');
+
+    // Rotte Utenti
+    Route::get('/utenti', 'UserController@index')->name('users.index');
+
+    // Rotte Ordini
+    Route::get('/ordini', 'OrderController@index')->name('orders.index');
+
 });
 
 Route::get('/prodotti', 'ShopController@index')->name('shop.index');
