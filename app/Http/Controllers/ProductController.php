@@ -55,6 +55,9 @@ class ProductController extends Controller
 
       $data = $request->all();
 
+      $validatedData = $request->validate([
+        'price' => 'integer',
+      ]);
       // $pd = Product::find($product);
       //prendi l'oggetto dal database da cambiare, con id
       $product->fill($data);
