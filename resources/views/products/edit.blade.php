@@ -9,6 +9,16 @@
             </div>
         </div>
         <div class="row">
+          @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
+
             <div class="col-12">
                 <form class="form-group" method="post" action="{{ route('products.change', ['id'=>$pd->id]) }}">
                     {{ csrf_field() }}
@@ -50,5 +60,18 @@
             </div>
         </div>
     </div>
+
+    {{-- <script type="text/javascript">
+
+    $('form').submit(function(e){
+      e.preventDefault();
+      if ($('textarea[name=description]').text().length > 50){
+        alert("la desc deve essere almeno 50 caratteri")
+        return false;
+      }
+      return true;
+    })
+
+    </script> --}}
 
 @endsection

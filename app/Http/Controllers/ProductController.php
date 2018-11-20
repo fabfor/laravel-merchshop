@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\Rules\MinWord;
 
 class ProductController extends Controller
 {
@@ -57,7 +58,10 @@ class ProductController extends Controller
 
       $validatedData = $request->validate([
         'price' => 'integer',
+        'description' => new MinWord
       ]);
+
+
       // $pd = Product::find($product);
       //prendi l'oggetto dal database da cambiare, con id
       $product->fill($data);
@@ -86,9 +90,10 @@ class ProductController extends Controller
     {
         $data = $request->all();
 
-        if (empty($data['title']) || empty($data['price'])) {
-            return 'error';
-        }
+        $validatedData = $request->validate([
+          'price' => 'integer',
+          'description' => new MinWord
+        ]);
 
         $data['slug'] = str_slug($data['title']);
 
